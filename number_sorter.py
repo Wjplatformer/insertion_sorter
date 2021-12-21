@@ -10,8 +10,8 @@ while True:
         NL.append(int(num))
     else:
         if num=='R':
-            for i in range(10):
-                NL.append(random.randint(1, 10000000000))
+            for i in range(100):
+                NL.append(random.randint(1, 1000))
         break
 
 print(NL)
