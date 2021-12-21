@@ -6,21 +6,18 @@ New_num_List=[]
 num='0'
 
 def sort(num):
-    print(f'entered{num}')
+    print('entered')
     global New_num_List
     if len(New_num_List)==0:
-        print('first one inserted')
         New_num_List.append(num)
     else:
         for i in range(len(New_num_List)):
-            print('entered loop')
-            print(f'comparing{New_num_List[i]}')
             if num < New_num_List[i]:
-                print(New_num_List[i])
                 New_num_List.insert(i, num)
-                print('inserted')
                 break
             else:
+                if i==len(New_num_List):
+                    New_num_List.append(num)
                 continue
                 
 
