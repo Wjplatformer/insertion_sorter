@@ -1,7 +1,7 @@
 class sort(object):
     def __init__(self):
         pass
-    def sort_num(self, List, Char):
+    def sort_num(self, List, Char=0):
         num_List=List
         New_num_List=[] 
         if not list(num_List):
@@ -19,7 +19,7 @@ class sort(object):
                             New_num_List.insert(i, num)
                             break
                     else:
-                        if num < List_in or  num==List_in:
+                        if num < List_in or num==List_in:
                             New_num_List.insert(i, num)
                             break
                         
@@ -27,3 +27,15 @@ class sort(object):
                         New_num_List.append(num)
                     continue
         return New_num_List
+
+    def sort_alpha(self, L, C):
+        #import string
+        ASCII_ver=[]
+        converted_ASCII=[]
+        for i in L:
+            ASCII_ver.append(ord(i))
+        sorted_ASCII=self.sort_num(ASCII_ver, C)
+        for i in sorted_ASCII:
+            converted_ASCII.append(chr(i))
+
+        return converted_ASCII
