@@ -1,9 +1,10 @@
 class sort(object):
     def __init__(self):
         pass
-    def sort_num(self, List, Char=0):
+    def sort_num(self, List, Char=0, POS=0):
         num_List=List
-        New_num_List=[] 
+        New_num_List=[]
+
         if not list(num_List):
             num_List=list(num_List)
         for i in range(len(num_List)):
@@ -22,20 +23,41 @@ class sort(object):
                         if num < List_in or num==List_in:
                             New_num_List.insert(i, num)
                             break
-                        
-                    if i==(Len-1):
-                        New_num_List.append(num)
-                    continue
-        return New_num_List
 
-    def sort_alpha(self, L, C):
-        #import string
+                        if i==(Len-1):
+                            New_num_List.append(num)
+                        continue
+        return New_num_List
+            #else:
+               #return 'boo you suck'
+
+    def sort_alpha(self, L, C, POS):
         ASCII_ver=[]
         converted_ASCII=[]
         for i in L:
-            ASCII_ver.append(ord(i))
+            ord_i=ord(i[POS])
+            if len(ord_i) != 3:
+                ord_i=ord_i+'0'*(3-ord_i)
+            i=str(ord_i)+(i.lstrip(i[POS]))
+            ASCII_ver.append(i)
         sorted_ASCII=self.sort_num(ASCII_ver, C)
         for i in sorted_ASCII:
-            converted_ASCII.append(chr(i))
+            converted_ASCII.append(int(chr(i[POS:POS+2].ltrip('0'))))
 
         return converted_ASCII
+
+    def word_sort(self, L, C):
+        import string
+        Longest=0
+        counter_column=0
+        counter_row=0
+        New_L=L
+        for word in L:
+            if len(word)>Longest:
+                Longest=len(word)
+            else:pass
+
+        return self.sort_alpha(L, C, 0)
+
+
+
