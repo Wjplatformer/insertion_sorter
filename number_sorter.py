@@ -1,7 +1,7 @@
 import random
 from sort_alg import sort
 val='0'
-NL=[]           
+NL=[]
 Char=''
 
 while True:
@@ -17,8 +17,7 @@ while True:
             break
         else:
             if val=='R':
-                for i in range(100):
-                    NL.append(random.randint(1, 1000))
+                NL.extend(random.randint(1, 1000) for _ in range(100))
             else:
                 NL.append(int(val))
 
